@@ -4,30 +4,49 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ef7b45">
 <link rel="manifest" href="manifest.webmanifest">
-<title>L'aventura d'aprendre</title>
+<title>L'AVENTURA D'APRENDRE</title>
 <style>
-:root{--ink:#20304a}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,#62cdd8,#ffd166,#ef8db2);display:grid;place-items:center}.home{width:min(980px,96vw);min-height:91vh;background:#fffaf1;border:7px solid white;border-radius:32px;padding:clamp(16px,4vw,38px);text-align:center;box-shadow:0 18px 55px #20304a66}h1{font-size:clamp(2.2rem,7vw,4.5rem);margin:.15em}.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin-top:25px}.game{display:block;text-decoration:none;color:var(--ink);background:white;border:4px solid #75c9d4;border-radius:24px;padding:20px 12px;box-shadow:0 7px 0 #4896a0;font-size:1.2rem;font-weight:850}.game span{display:block;font-size:4rem}.game.all{background:#fff0c6;border-color:#ef7b45;box-shadow:0 7px 0 #ba5730}.game small{display:block;font-weight:600;margin-top:5px}.voice{border:0;border-radius:18px;background:#ffd166;padding:11px 17px;font:inherit;font-weight:850;box-shadow:0 5px 0 #b48e30}@media(max-width:480px){.home{width:100vw;border:0;border-radius:0;padding:12px}.games{grid-template-columns:1fr 1fr;gap:8px}.game{padding:12px 6px;font-size:1rem}.game span{font-size:3rem}}
+:root{--ink:#20304a;--gold:#ffd166;--blue:#62cdd8;--pink:#ef8db2}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,var(--blue),var(--gold),var(--pink));display:grid;place-items:center}.home{width:min(980px,96vw);min-height:91vh;background:#fffaf1;border:7px solid white;border-radius:32px;padding:clamp(16px,4vw,38px);text-align:center;box-shadow:0 18px 55px #20304a66}.hidden{display:none!important}h1{font-size:clamp(2rem,7vw,4.2rem);margin:.15em}.subtitle{font-size:clamp(1rem,3vw,1.35rem);font-weight:750}.name{display:block;width:min(430px,90%);margin:18px auto;padding:.28em;text-align:center;font-size:clamp(1.7rem,6vw,3rem);font-weight:900;border:5px solid #ef7b45;border-radius:22px;color:var(--ink)}button{border:0;border-radius:18px;background:var(--gold);color:var(--ink);padding:12px 18px;font:inherit;font-weight:900;box-shadow:0 6px 0 #b48e30;cursor:pointer;margin:7px}.languages,.known{display:flex;justify-content:center;flex-wrap:wrap;gap:7px}.lang{background:white;border:4px solid transparent}.lang.selected{border-color:#ef7b45}.known button{background:#e7f9fb}.known span{display:block;font-size:2.5rem}.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin-top:25px}.game{display:block;text-decoration:none;color:var(--ink);background:white;border:4px solid #75c9d4;border-radius:24px;padding:20px 12px;box-shadow:0 7px 0 #4896a0;font-size:1.2rem;font-weight:900}.game span{display:block;font-size:4rem}.game.all{background:#fff0c6;border-color:#ef7b45;box-shadow:0 7px 0 #ba5730}.game small{display:block;margin-top:5px}.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}@media(max-width:480px){.home{width:100vw;border:0;border-radius:0;padding:12px}.games{grid-template-columns:1fr 1fr;gap:8px}.game{padding:12px 6px;font-size:.95rem}.game span{font-size:3rem}}
 </style>
-</head>
+<style>body,button,input,a,h1,h2,h3,p,small,span{ text-transform:uppercase }</style></head>
 <body>
 <main class="home">
+<section id="entry">
 <div style="font-size:5rem">🎡</div>
-<h1>L'aventura d'aprendre</h1>
-<p>Tria un joc o juga una mica de tot.</p>
-<button class="voice" id="voice">🔊 REPETIR</button>
+<h1 id="entryTitle">QUI JUGARÀ?</h1>
+<label class="subtitle" id="nameLabel" for="childName">NOM DEL NEN O DE LA NENA</label>
+<input class="name" id="childName" maxlength="16" autocomplete="off" placeholder="ESCRIU EL NOM">
+<p class="subtitle" id="languageLabel">TRIA L'IDIOMA</p>
+<div class="languages" id="languages"><button class="lang selected">🟡🔴 CATALÀ</button><button class="lang">🇪🇸 ESPAÑOL</button><button class="lang">🇬🇧 ENGLISH</button></div>
+<button id="continue">▶️ COMENÇAR</button>
+<div id="knownWrap" class=""><p class="subtitle" id="knownLabel">O TRIA UN JUGADOR</p><div class="known" id="known"><button><span>🐉</span>Luca</button><button><span>🦄</span>Cloe</button><button><span>🐉</span>Prueba</button><button><span>🚀</span>MARIO</button></div></div>
+</section>
+<section id="menu" class="hidden">
+<div class="top"><button id="change">👥 CANVIAR</button><strong id="player"></strong></div>
+<div style="font-size:5rem">🎡</div>
+<h1 id="menuTitle">L'AVENTURA D'APRENDRE</h1>
+<p id="menuSubtitle">TRIA UN JOC O JUGA UNA MICA DE TOT.</p>
+<button id="voice">🔊 REPETIR</button>
 <div class="games">
-<a class="game" href="matematicas.html"><span>➕</span>Matemàtiques<small>Sumar i restar</small></a>
-<a class="game" href="lectura.html"><span>📚</span>Lectura<small>Paraules i frases</small></a>
-<a class="game" href="diferencias.html"><span>🔎</span>Diferències<small>Troba els canvis</small></a>
-<a class="game" href="memory.html"><span>🧠</span>Joc de memòria<small>Troba les parelles</small></a>
-<a class="game all" href="tots.html"><span>🌟</span>Una mica de tot<small>Una activitat de cada joc, sense final</small></a>
+<a class="game" href="matematicas.html"><span>➕</span><b data-key="math">MATEMÀTIQUES</b><small data-key="mathSub">SUMAR I RESTAR</small></a>
+<a class="game" href="lectura.html"><span>📚</span><b data-key="reading">LECTURA</b><small data-key="readingSub">PARAULES I FRASES</small></a>
+<a class="game" href="diferencias.html"><span>🔎</span><b data-key="diff">DIFERÈNCIES</b><small data-key="diffSub">TROBA ELS CANVIS</small></a>
+<a class="game" href="memory.html"><span>🧠</span><b data-key="memory">JOC DE MEMÒRIA</b><small data-key="memorySub">TROBA LES PARELLES</small></a>
+<a class="game all" href="tots.html"><span>🌟</span><b data-key="all">UNA MICA DE TOT</b><small data-key="allSub">UNA ACTIVITAT DE CADA JOC, SENSE FINAL</small></a>
 </div>
+</section>
 </main>
 <script src="voice-quality.js"></script>
 <script>
-function speak(){sayGameText('Tria un joc. Pots jugar a matemàtiques, a lectura, a trobar les diferències, al joc de memòria, o a una mica de tot.','ca-ES',null,.78)}
-document.getElementById('voice').onclick=speak;
-if(speechSynthesis.getVoices().length)setTimeout(speak,450);else{speechSynthesis.addEventListener('voiceschanged',speak,{once:true});setTimeout(speak,1200)}
+const $=id=>document.getElementById(id),languages={ca:{flag:'🟡🔴',name:'CATALÀ',voice:'ca-ES',entry:'QUI JUGARÀ?',nameLabel:'NOM DEL NEN O DE LA NENA',placeholder:'ESCRIU EL NOM',languageLabel:"TRIA L'IDIOMA",start:'▶️ COMENÇAR',known:'O TRIA UN JUGADOR',change:'👥 CANVIAR',title:"L'AVENTURA D'APRENDRE",subtitle:'TRIA UN JOC O JUGA UNA MICA DE TOT.',math:'MATEMÀTIQUES',mathSub:'SUMAR I RESTAR',reading:'LECTURA',readingSub:'PARAULES I FRASES',diff:'DIFERÈNCIES',diffSub:'TROBA ELS CANVIS',memory:'JOC DE MEMÒRIA',memorySub:'TROBA LES PARELLES',all:'UNA MICA DE TOT',allSub:'UNA ACTIVITAT DE CADA JOC, SENSE FINAL',prompt:'TRIA UN JOC. POTS JUGAR A MATEMÀTIQUES, A LECTURA, A TROBAR LES DIFERÈNCIES, AL JOC DE MEMÒRIA, O A UNA MICA DE TOT.',need:'ESCRIU EL NOM, SI US PLAU.'},es:{flag:'🇪🇸',name:'ESPAÑOL',voice:'es-ES',entry:'¿QUIÉN VA A JUGAR?',nameLabel:'NOMBRE DEL NIÑO O DE LA NIÑA',placeholder:'ESCRIBE EL NOMBRE',languageLabel:'ELIGE EL IDIOMA',start:'▶️ EMPEZAR',known:'O ELIGE UN JUGADOR',change:'👥 CAMBIAR',title:'LA AVENTURA DE APRENDER',subtitle:'ELIGE UN JUEGO O JUEGA UN POCO DE TODO.',math:'MATEMÁTICAS',mathSub:'SUMAR Y RESTAR',reading:'LECTURA',readingSub:'PALABRAS Y FRASES',diff:'DIFERENCIAS',diffSub:'ENCUENTRA LOS CAMBIOS',memory:'JUEGO DE MEMORIA',memorySub:'ENCUENTRA LAS PAREJAS',all:'UN POCO DE TODO',allSub:'UNA ACTIVIDAD DE CADA JUEGO, SIN FINAL',prompt:'ELIGE UN JUEGO. PUEDES JUGAR A MATEMÁTICAS, LECTURA, DIFERENCIAS, MEMORIA O UN POCO DE TODO.',need:'ESCRIBE EL NOMBRE, POR FAVOR.'},en:{flag:'🇬🇧',name:'ENGLISH',voice:'en-US',entry:'WHO IS PLAYING?',nameLabel:"CHILD'S NAME",placeholder:'TYPE THE NAME',languageLabel:'CHOOSE A LANGUAGE',start:'▶️ START',known:'OR CHOOSE A PLAYER',change:'👥 CHANGE',title:'THE LEARNING ADVENTURE',subtitle:'CHOOSE A GAME OR PLAY A LITTLE OF EVERYTHING.',math:'MATHS',mathSub:'ADD AND SUBTRACT',reading:'READING',readingSub:'WORDS AND SENTENCES',diff:'DIFFERENCES',diffSub:'FIND THE CHANGES',memory:'MEMORY GAME',memorySub:'FIND THE PAIRS',all:'A LITTLE OF EVERYTHING',allSub:'ONE ACTIVITY FROM EACH GAME, WITH NO END',prompt:'CHOOSE A GAME. YOU CAN PLAY MATHS, READING, DIFFERENCES, MEMORY, OR A LITTLE OF EVERYTHING.',need:'TYPE THE NAME, PLEASE.'}};
+let selectedLang='ca',profiles=JSON.parse(localStorage.getItem('perfilsNombres')||'[]');
+function save(){localStorage.setItem('perfilsNombres',JSON.stringify(profiles))}
+function renderLanguage(){let l=languages[selectedLang];$('entryTitle').textContent=l.entry;$('nameLabel').textContent=l.nameLabel;$('childName').placeholder=l.placeholder;$('languageLabel').textContent=l.languageLabel;$('continue').textContent=l.start;$('knownLabel').textContent=l.known;$('languages').innerHTML='';Object.entries(languages).forEach(([code,item])=>{let b=document.createElement('button');b.className='lang'+(code===selectedLang?' selected':'');b.textContent=`${item.flag} ${item.name}`;b.onclick=()=>{selectedLang=code;renderLanguage()};$('languages').appendChild(b)})}
+function renderKnown(){if(!profiles.length)return;$('knownWrap').classList.remove('hidden');$('known').innerHTML='';profiles.forEach(p=>{let b=document.createElement('button');b.innerHTML=`<span>${p.avatar||'⭐'}</span>${p.name}`;b.onclick=()=>openMenu(p);$('known').appendChild(b)})}
+function openMenu(profile){localStorage.setItem('perfilActiu',profile.id);selectedLang=profile.lang||'ca';let l=languages[selectedLang]||languages.ca;$('entry').classList.add('hidden');$('menu').classList.remove('hidden');$('player').textContent=`${profile.avatar||'⭐'} ${profile.name}`;$('change').textContent=l.change;$('menuTitle').textContent=l.title;$('menuSubtitle').textContent=l.subtitle;document.querySelectorAll('[data-key]').forEach(el=>el.textContent=l[el.dataset.key]);speak()}
+function continueGame(){let name=$('childName').value.trim();let l=languages[selectedLang];if(!name){sayGameText(l.need,l.voice,null,.78);$('childName').focus();return}let profile=profiles.find(p=>p.name.toLocaleLowerCase()===name.toLocaleLowerCase());if(profile)profile.lang=selectedLang;else{let avatars=['🐉','🦄','🐸','🚀','🐯','🐼'];profile={id:Date.now().toString(36),name,avatar:avatars[profiles.length%avatars.length],lang:selectedLang,level:1,stars:0,correct:0,levelCorrect:0,readingStage:1,readingCorrect:0,memoryLevel:1,differenceLevel:1};profiles.push(profile)}save();openMenu(profile)}
+function speak(){let l=languages[selectedLang]||languages.ca;sayGameText(l.prompt,l.voice,null,.78)}
+$('continue').onclick=continueGame;$('childName').onkeydown=e=>{if(e.key==='Enter')continueGame()};$('voice').onclick=speak;$('change').onclick=()=>{speechSynthesis.cancel();$('menu').classList.add('hidden');$('entry').classList.remove('hidden');$('childName').value='';renderLanguage();renderKnown()};renderLanguage();renderKnown();
 </script>
 
 
