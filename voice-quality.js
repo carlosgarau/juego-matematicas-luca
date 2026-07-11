@@ -1,4 +1,7 @@
 (function(){
+  var uppercaseStyle=document.createElement('style');
+  uppercaseStyle.textContent='body,button,input,a,h1,h2,h3,p,small,span{ text-transform:uppercase }';
+  document.head.appendChild(uppercaseStyle);
   function scoreVoice(voice, language){
     var wanted=language.toLowerCase();
     var prefix=wanted.slice(0,2);
