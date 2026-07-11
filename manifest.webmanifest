@@ -1,0 +1,10 @@
+{
+  "name": "L'aventura dels nombres amb en Luca",
+  "short_name": "Nombres Luca",
+  "lang": "ca",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff7d6",
+  "theme_color": "#e53935",
+  "description": "Joc de sumes i restes en català"
+}
