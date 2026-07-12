@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ca">
 <head>
 <meta charset="utf-8">
@@ -52,7 +52,7 @@ if(!profiles){profiles=[{id:'luca',name:'LUCA',avatar:'🐉',lang:'ca',level:1,s
 profiles.forEach(p=>{p.memoryLevel=Math.max(1,p.memoryLevel||1);p.stars=Math.max(0,p.stars||0)});save();
 function save(){localStorage.setItem('perfilsNombres',JSON.stringify(profiles))}
 function shuffle(array){for(let i=array.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[array[i],array[j]]=[array[j],array[i]]}return array}
-function pairCount(level){return Math.min(16,4+Math.floor((level-1)/2))}function allowedMistakes(count){return Math.max(3,Math.ceil(count*.75))}
+function pairCount(level){return Math.min(16,4+Math.floor((level-1)/2))}function allowedMistakes(count){return 2*Math.max(3,Math.ceil(count*.75))}
 function themeFor(level){let all=[emojiThemes[0],pictureThemes[0],emojiThemes[1],pictureThemes[1],emojiThemes[2],emojiThemes[3],emojiThemes[4],emojiThemes[5]];return all[(level-1)%all.length]}
 function renderProfiles(){$('profileList').innerHTML='';profiles.forEach(p=>{let b=document.createElement('button');b.className='profile';b.innerHTML=`<span>${p.avatar}</span>${p.name}<small>NIVELL ${p.memoryLevel} · ⭐ ${p.stars}</small>`;b.onclick=()=>select(p.id);$('profileList').appendChild(b)})}
 function select(id){active=profiles.find(p=>p.id===id);if(!active)return;localStorage.setItem('perfilActiu',id);levelIndex=active.memoryLevel-1;$('profilesScreen').classList.add('hidden');$('play').classList.remove('hidden');startLevel(false)}
